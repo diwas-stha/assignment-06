@@ -2,12 +2,17 @@ import os
 import streamlit as st
 import pandas as pd
 
-
 DATA_FOLDER = 'data'
 EMPLOYEE_CSV_PATH = os.path.join(DATA_FOLDER, 'employee_data.csv')
 
 
 def load_employee_data():
+    """
+    Load employee data from the CSV file if it exists, or create a new CSV file if not.
+    Returns:
+    -------
+        pd.DataFrame: Loaded employee data
+    """
     if not os.path.exists(EMPLOYEE_CSV_PATH):
         data = pd.DataFrame(columns=['Empno', 'Ename', 'Job', 'Deptno'])
         data.to_csv(EMPLOYEE_CSV_PATH, index=False)  # Create the CSV file
@@ -17,6 +22,9 @@ def load_employee_data():
 
 
 def get_employee_data():
+    """
+    Display the Employee Data Entry form and handle data addition.
+    """
     st.title("Employee Data Entry")
 
     empno = st.text_input("Employee Number (Empno):")
@@ -25,8 +33,6 @@ def get_employee_data():
     deptno = st.text_input("Department Number (Deptno):")
 
     employee_data = load_employee_data()
-
-    # employee_data = pd.DataFrame(columns=['Empno', 'Ename', 'Job', 'Deptno'])
 
     if st.button("Add Employee"):
         employee_data.loc[len(employee_data)] = [empno, ename, job, deptno]

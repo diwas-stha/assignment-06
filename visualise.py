@@ -5,6 +5,9 @@ from department_data import load_department_data
 
 
 def visualize_data():
+    """
+    Display a visualization of joined Employee and Department data based on the 'Deptno' field.
+    """
     st.title("Visualize Joined Employee and Department Data")
 
     employee_data = load_employee_data()
