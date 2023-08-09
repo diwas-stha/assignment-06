@@ -5,6 +5,9 @@ from visualise import visualize_data
 
 
 def main():
+    """
+    Main function to create a Streamlit application for managing employee and department data.
+    """
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox(
         "Select Page", ("Employee Data Entry", "Department Data Entry", "Visualize Data"))
