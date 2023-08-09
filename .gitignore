@@ -1,0 +1,4 @@
+/env
+/data/department_data.csv
+/data/employee_data.csv
+/__pycache__
